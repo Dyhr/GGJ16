@@ -2,6 +2,7 @@
 using UnityEngine;
 using Pathfinding;
 using System.Collections;
+using System.Collections.Generic;
 
 [RequireComponent(typeof(Human))]
 [RequireComponent(typeof(Seeker))]
@@ -16,11 +17,16 @@ public class Player : MonoBehaviour
 
     public bool Control = true;
 
+    public List<string> Todo = new List<string>();
+
     private Human human;
     internal Seeker seeker;
     internal Path path;
     private int currentWaypoint = 0;
     private bool _awaitingPath;
+
+    private Interactable Task;
+    private bool doing = false;
 
     private void Start()
     {
@@ -37,6 +43,23 @@ public class Player : MonoBehaviour
     public void Update()
     {
         if (!Control) return;
+
+        if(Task != null)
+        {
+            if (!doing && Vector3.Distance(transform.position,Task.transform.position) < Task.InteractionDistance)
+            {
+                doing = true;
+                path = null;
+            }
+            else if (doing)
+            {
+                doing = false;
+                if (Todo.Contains(Task.Name)) {
+                    Todo.Remove(Task.Name);
+                }
+                Task = null;
+            }
+        }
 
         if (path != null)
         {
@@ -60,14 +83,28 @@ public class Player : MonoBehaviour
         var cam = Camera.main;
         if (cam != null)
         {
+
+            var mask = 1 << LayerMask.NameToLayer("Target");
             var ray = cam.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
-            if (Input.GetMouseButtonDown(0) && Physics.Raycast(ray, out hit, 100))
+            if (Input.GetMouseButtonDown(0) && Physics.Raycast(ray, out hit, 100, mask))
             {
+                Task = hit.transform.parent.GetComponent<Interactable>();
+                doing = false;
+
+                targetPosition = Task.transform.position;
+                _awaitingPath = true;
+                seeker.StartPath(transform.position, targetPosition);
+                Debug.DrawLine(ray.origin, ray.origin + ray.direction * 100, Color.red, 0.5f);
+            }
+            else if (Input.GetMouseButtonDown(0) && Physics.Raycast(ray, out hit, 100))
+            {
+                Task = null;
+                doing = false;
                 targetPosition = hit.point;
                 _awaitingPath = true;
                 seeker.StartPath(transform.position, targetPosition);
-                Debug.DrawLine(ray.origin, ray.origin + ray.direction * 100, Color.red, 0.1f);
+                Debug.DrawLine(ray.origin, ray.origin + ray.direction * 100, Color.red, 0.5f);
             }
         }
 
