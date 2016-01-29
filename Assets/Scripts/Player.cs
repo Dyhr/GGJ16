@@ -14,6 +14,8 @@ public class Player : MonoBehaviour
     public float NormalSpeed;
     public float FastSpeed;
 
+    public bool Control = true;
+
     private Human human;
     internal Seeker seeker;
     internal Path path;
@@ -34,6 +36,8 @@ public class Player : MonoBehaviour
 
     public void Update()
     {
+        if (!Control) return;
+
         if (path != null)
         {
             if (currentWaypoint >= path.vectorPath.Count)

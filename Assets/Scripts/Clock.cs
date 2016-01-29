@@ -43,6 +43,7 @@ public class Clock : MonoBehaviour
             {
                 Running = false;
 
+                GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().Control = false;
                 Debug.Log("You Lose");
             }
         }
