@@ -91,14 +91,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 2100000, guid: 1c639f62d888b2a42ab8497f45005a88, type: 2}
-  m_Color: {r: 0.13333333, g: 0.5459637, b: 0.95294124, a: 1}
+  m_Color: {r: 0.9485294, g: 0.5209216, b: 0.06277033, a: 0.528}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 090d17da74f17c340853ea1cd4b8894b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d0c40360894bc984da29c4b3183d14cc, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -117,12 +117,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 348f2a07c9e7db941952f37fea17d61d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Color: {r: 0.12941177, g: 0.54509807, b: 0.95294124, a: 0.603}
+  Color: {r: 0.9485294, g: 0.82298875, b: 0.63467777, a: 0.597}
   Ring: {fileID: 11411148}
   Mark: {fileID: 11402434}
   Size1: 45
-  Size2: 70
-  Speed: 1.4
+  Size2: 55
+  Speed: 1.2
   Steps: 60
   Curve:
     serializedVersion: 2
@@ -220,7 +220,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 108164}
   m_LocalRotation: {x: 0.3535534, y: 0.3535534, z: -0.14644663, w: 0.85355335}
-  m_LocalPosition: {x: 0, y: 0, z: -2.85}
+  m_LocalPosition: {x: 0, y: 0, z: 7.8549976}
   m_LocalScale: {x: 0.051502146, y: 0.051502146, z: 0.051502146}
   m_Children:
   - {fileID: 22402474}
@@ -229,7 +229,7 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -3.21, y: 3.57}
+  m_AnchoredPosition: {x: -8.626156, y: 2.771326}
   m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &22485220
@@ -258,12 +258,32 @@ Prefab:
     m_Modifications:
     - target: {fileID: 0}
       propertyPath: Color.a
-      value: 0.603
+      value: 0.597
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 2100000, guid: 1c639f62d888b2a42ab8497f45005a88, type: 2}
+    - target: {fileID: 0}
+      propertyPath: Size2
+      value: 55
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: Color.r
+      value: 0.9485294
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: Color.g
+      value: 0.82298875
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: Color.b
+      value: 0.63467777
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: Speed
+      value: 1.2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 108164}

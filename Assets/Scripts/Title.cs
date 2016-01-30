@@ -77,7 +77,7 @@ public class Title : MonoBehaviour
             Debug.Log("You win!");
             StartCoroutine(FadeAway());
             yield return new WaitForSeconds(1.5f);
-            Text.text = "you made it, " + Name.text.ToLower();
+            Text.text = "you made through the week, "+ Name.text.ToLower() + "\ngood job.";
             StartCoroutine(FadeDark());
         }
         else
@@ -130,6 +130,7 @@ public class Title : MonoBehaviour
             case 4: Text.text = "friday"; break;
             default: Text.text = "someday"; break;
         }
+        Text.text += ".\nmake coffee.\ntake a shower.\nleave for work.";
         yield return new WaitForSeconds(0.2f);
         time = 0;
         for (var i = 0; i < steps; ++i)
@@ -139,7 +140,7 @@ public class Title : MonoBehaviour
             Text.color = Color.Lerp(BackgroundLight, TextLight, time);
         }
         Text.color = TextLight;
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(4f);
         StartCoroutine(FadeOut());
     }
 
