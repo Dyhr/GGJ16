@@ -16,6 +16,7 @@ public class Clock : MonoBehaviour
     private float timer;
 
     public Text text;
+    public Title title;
 
     private void Start()
     {
@@ -43,7 +44,8 @@ public class Clock : MonoBehaviour
                 {
                     Running = false;
 
-                    GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().Control = false;
+                    FindObjectOfType<Player>().Control = false;
+                    title.Lose();
                     Debug.Log("You Lose");
                 }
             }

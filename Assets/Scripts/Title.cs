@@ -59,6 +59,11 @@ public class Title : MonoBehaviour
         StartCoroutine(FadeAndLoad());
     }
 
+    internal void Lose()
+    {
+        StartCoroutine(FadeAndDie());
+    }
+
     private IEnumerator FadeAndLoad()
     {
         Day++;
@@ -67,12 +72,12 @@ public class Title : MonoBehaviour
         yield return new WaitForSeconds(4);
         var index = SceneManager.GetActiveScene().buildIndex;
         Debug.Log(index + " of  " + SceneManager.sceneCountInBuildSettings);
-        if (index+1 >= SceneManager.sceneCountInBuildSettings)
+        if (index + 1 >= SceneManager.sceneCountInBuildSettings)
         {
             Debug.Log("You win!");
             StartCoroutine(FadeAway());
             yield return new WaitForSeconds(1.5f);
-            Text.text = "you made it, "+Name.text;
+            Text.text = "you made it, " + Name.text.ToLower();
             StartCoroutine(FadeDark());
         }
         else
@@ -85,6 +90,23 @@ public class Title : MonoBehaviour
             yield return new WaitForSeconds(1);
             SceneManager.LoadScene(++index);
         }
+    }
+    private IEnumerator FadeAndDie()
+    {
+        Day = 0;
+        Text.text = "";
+        StartCoroutine(FadeAway());
+        yield return new WaitForSeconds(2);
+
+        Text.text = "you fired, " + Name.text.ToLower();
+        StartCoroutine(FadeDark());
+        yield return new WaitForSeconds(5);
+        StartCoroutine(FadeAway());
+        yield return new WaitForSeconds(1);
+        Text.text = "";
+        StartCoroutine(FadeLight());
+        yield return new WaitForSeconds(1);
+        SceneManager.LoadScene(0);
     }
 
     private IEnumerator SwitchTo()
