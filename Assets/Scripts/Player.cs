@@ -89,6 +89,7 @@ public class Player : MonoBehaviour
         if (path != null)
         {
             Manimator.SetFloat("Speed", 1);
+            GetComponent<Rigidbody>().freezeRotation = false;
             if (currentWaypoint >= path.vectorPath.Count)
             {
                 Debug.Log("Went there!");
@@ -105,6 +106,7 @@ public class Player : MonoBehaviour
         else
         {
             Manimator.SetFloat("Speed", 0);
+            GetComponent<Rigidbody>().freezeRotation = true;
         }
 
         // Moving around

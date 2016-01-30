@@ -641,8 +641,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 124166}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.227, y: -0.496, z: -0.179}
-  m_LocalScale: {x: 0.02, y: 0.02, z: 0.02}
+  m_LocalPosition: {x: -0.244, y: -0.496, z: -0.179}
+  m_LocalScale: {x: 0.022, y: 0.025, z: 0.022}
   m_Children:
   - {fileID: 442730}
   - {fileID: 466782}
@@ -1074,9 +1074,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nextWaypointDistance: 0.65
   targetPosition: {x: 0, y: 0, z: 0}
-  SlowSpeed: 3
-  NormalSpeed: 3
-  FastSpeed: 3
+  SlowSpeed: 2
+  NormalSpeed: 2
+  FastSpeed: 2
   Control: 1
   Todo:
   - Get out of bed
