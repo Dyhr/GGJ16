@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using System.Collections;
 using System;
 using UnityEngine.EventSystems;
@@ -16,10 +17,11 @@ public class Title : MonoBehaviour
     public Color BackgroundLight;
     public Color BackgroundDark;
     public Color TextLight;
+
     public Color TextDark;
     public AnimationCurve Curve;
 
-    public int Day;
+    public static int Day;
 
     public bool Skip;
 
@@ -27,12 +29,21 @@ public class Title : MonoBehaviour
     {
         if (Skip)
         {
-            Destroy(gameObject);
+            gameObject.SetActive(false);
             return;
         }
         player.enabled = Clock.Running = false;
-        Background.color = BackgroundLight;
-        Text.color = TextLight;
+        if (Day == 0)
+        {
+            Background.color = BackgroundLight;
+            Text.color = TextLight;
+        }
+        else
+        {
+            Background.color = BackgroundDark;
+            Text.color = TextDark;
+            Text.text = "";
+        }
     }
 
     public void Click()
@@ -40,10 +51,43 @@ public class Title : MonoBehaviour
         Submit.gameObject.SetActive(false);
         Name.gameObject.SetActive(false);
 
-        StartCoroutine(SwitchTo("Monday"));
+        StartCoroutine(SwitchTo());
     }
 
-    private IEnumerator SwitchTo(string day)
+    internal void NextDay()
+    {
+        StartCoroutine(FadeAndLoad());
+    }
+
+    private IEnumerator FadeAndLoad()
+    {
+        Day++;
+        Text.text = "";
+        StartCoroutine(FadeLight());
+        yield return new WaitForSeconds(4);
+        Text.text = "tomorrow commences..";
+        StartCoroutine(FadeDark());
+        yield return new WaitForSeconds(3);
+        var index = SceneManager.GetActiveScene().buildIndex;
+        Debug.Log(index + " of  " + SceneManager.sceneCountInBuildSettings);
+        if (index+1 >= SceneManager.sceneCountInBuildSettings)
+        {
+            Debug.Log("You win!");
+            StartCoroutine(FadeAway());
+            yield return new WaitForSeconds(1.5f);
+            Text.text = "you made it, "+Name.text;
+            StartCoroutine(FadeDark());
+        }
+        else
+        {
+            Debug.Log("Next scene!");
+            StartCoroutine(FadeAway());
+            yield return new WaitForSeconds(1);
+            SceneManager.LoadScene(++index);
+        }
+    }
+
+    private IEnumerator SwitchTo()
     {
         Color old = Text.color;
         int steps = 30;
@@ -52,14 +96,17 @@ public class Title : MonoBehaviour
         {
             yield return new WaitForSeconds(1 / (float)steps);
             time += 1 / (float)steps;
-            Text.color = Color.Lerp(old,BackgroundLight,time);
+            Text.color = Color.Lerp(old, BackgroundLight, time);
         }
         Text.color = BackgroundLight;
         switch (Day)
         {
-            case 0: Text.text = "Monday"; break;
-            case 1: Text.text = "Tuesday"; break;
-            default: Text.text = "Someday"; break;
+            case 0: Text.text = "monday"; break;
+            case 1: Text.text = "tuesday"; break;
+            case 2: Text.text = "wednesday"; break;
+            case 3: Text.text = "thursday"; break;
+            case 4: Text.text = "friday"; break;
+            default: Text.text = "someday"; break;
         }
         yield return new WaitForSeconds(0.2f);
         time = 0;
@@ -96,5 +143,58 @@ public class Title : MonoBehaviour
         Background.color = newB;
 
         player.enabled = Clock.Running = true;
+    }
+    private IEnumerator FadeLight()
+    {
+        Color oldB = Background.color;
+        Color newB = BackgroundLight;
+
+        int steps = 30;
+        float time = 0;
+        for (var i = 0; i < steps; ++i)
+        {
+            yield return new WaitForSeconds(1 / (float)steps);
+            time += 1 / (float)steps;
+            Background.color = Color.Lerp(oldB, newB, time);
+        }
+        Background.color = newB;
+    }
+    private IEnumerator FadeDark()
+    {
+        Color oldT = Text.color;
+        Color oldB = Background.color;
+        Color newT = TextDark;
+        Color newB = BackgroundDark;
+
+        int steps = 30;
+        float time = 0;
+        for (var i = 0; i < steps; ++i)
+        {
+            yield return new WaitForSeconds(1 / (float)steps);
+            time += 1 / (float)steps;
+            Text.color = Color.Lerp(oldT, newT, time);
+            Background.color = Color.Lerp(oldB, newB, time);
+        }
+        Text.color = newT;
+        Background.color = newB;
+    }
+    private IEnumerator FadeAway()
+    {
+        Color oldT = Text.color;
+        Color oldB = Background.color;
+        Color newT = BackgroundDark;
+        Color newB = BackgroundDark;
+
+        int steps = 30;
+        float time = 0;
+        for (var i = 0; i < steps; ++i)
+        {
+            yield return new WaitForSeconds(1 / (float)steps);
+            time += 1 / (float)steps;
+            Text.color = Color.Lerp(oldT, newT, time);
+            Background.color = Color.Lerp(oldB, newB, time);
+        }
+        Text.color = newT;
+        Background.color = newB;
     }
 }

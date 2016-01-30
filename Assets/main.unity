@@ -725,6 +725,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b72c9e61f770704a80bf964c5b7d78f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  title: {fileID: 1634464694}
 --- !u!1001 &804848211
 Prefab:
   m_ObjectHideFlags: 0
@@ -1402,9 +1403,9 @@ Prefab:
       propertyPath: m_Name
       value: Title GUI
       objectReference: {fileID: 0}
-    - target: {fileID: 11476026, guid: 2fb4f8d55b7d21f45b85b3e73664ce34, type: 2}
-      propertyPath: Skip
-      value: 1
+    - target: {fileID: 11455334, guid: 2fb4f8d55b7d21f45b85b3e73664ce34, type: 2}
+      propertyPath: m_Text
+      value: EVERYDAY MORNING ROUTINE OF AN ORDINARY MAN
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2fb4f8d55b7d21f45b85b3e73664ce34, type: 2}
@@ -1779,6 +1780,12 @@ Camera:
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
   m_StereoMirrorMode: 0
+--- !u!114 &1634464694 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11476026, guid: 2fb4f8d55b7d21f45b85b3e73664ce34,
+    type: 2}
+  m_PrefabInternal: {fileID: 1365592180}
+  m_Script: {fileID: 11500000, guid: da7a29d0026827549b87b2023c14d68c, type: 3}
 --- !u!1 &1724689767
 GameObject:
   m_ObjectHideFlags: 0
