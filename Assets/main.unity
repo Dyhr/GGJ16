@@ -199,10 +199,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 8
       objectReference: {fileID: 0}
-    - target: {fileID: 9546222, guid: 23c408136aba3cd4c9ad4bb870cbf878, type: 2}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 901ff68ddb6a8c949b5bf49495a1b788, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 23c408136aba3cd4c9ad4bb870cbf878, type: 2}
   m_IsPrefabParent: 0
@@ -476,7 +472,7 @@ MonoBehaviour:
   DefaultSize: 6.5
   ZoomSize: 2.25
   cam2: {fileID: 1621450884}
-  MusicSource: {fileID: 0}
+  MusicSource: {fileID: 109329734}
 --- !u!82 &109329734
 AudioSource:
   m_ObjectHideFlags: 0
@@ -490,7 +486,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   Priority: 128

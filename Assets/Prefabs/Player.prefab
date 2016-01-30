@@ -986,7 +986,7 @@ Animator:
   m_GameObject: {fileID: 124166}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: e3ef0234ddd14b843aab1938c2825f39, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 901ff68ddb6a8c949b5bf49495a1b788, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1096,6 +1096,7 @@ MonoBehaviour:
   Hidden: 00000100000101010001010001
   doing: 1
   AttPrefab: {fileID: 11447158, guid: 56091bc7e559b4c4d8b05207f3ed80e1, type: 2}
+  Manimator: {fileID: 9546222}
 --- !u!136 &13670418
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -1119,7 +1120,7 @@ SkinnedMeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: ef7d759f38f635f4fa2e0532a6c08c17, type: 2}
+  - {fileID: 2100000, guid: 8ce59989e714e7f41a78294b1f63a6b5, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1

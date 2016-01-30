@@ -31,6 +31,7 @@ public class Player : MonoBehaviour
     public bool doing = false;
 
     public ClickMe AttPrefab;
+    public Animator Manimator;
 
     private void Start()
     {
@@ -78,12 +79,16 @@ public class Player : MonoBehaviour
 
     public void Update()
     {
+        Manimator.SetBool("Acting", doing);
+        Manimator.SetFloat("Speed", 0);
+
         if (!Control) return;
 
         // Following your path
 
         if (path != null)
         {
+            Manimator.SetFloat("Speed", 1);
             if (currentWaypoint >= path.vectorPath.Count)
             {
                 Debug.Log("Went there!");
@@ -97,9 +102,9 @@ public class Player : MonoBehaviour
             if (Vector3.Distance(transform.position, path.vectorPath[currentWaypoint]) < nextWaypointDistance)
                 currentWaypoint++;
         }
-        else if (!_awaitingPath)
+        else
         {
-            human.LockRot = true;
+            Manimator.SetFloat("Speed", 0);
         }
 
         // Moving around

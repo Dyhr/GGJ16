@@ -22,6 +22,9 @@ public class Cam : MonoBehaviour
     private void Start()
     {
         cam = GetComponent<Camera>();
+
+        // Music
+        MusicSource.Play();
     }
 
     private void Update()
@@ -35,8 +38,5 @@ public class Cam : MonoBehaviour
         cam.orthographicSize = cam2.orthographicSize = Mathf.Lerp(cam.orthographicSize, !Player.doing ? DefaultSize : ZoomSize, 0.2f);
         transform.LookAt(pos);
         cam2.transform.rotation = transform.rotation;
-
-        // Music
-        MusicSource.Play();
     }
 }
