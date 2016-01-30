@@ -1710,6 +1710,7 @@ MonoBehaviour:
   - Make coffee
   - Drink coffee
   - Look at art
+  - Brush teeth
   doing: 1
 --- !u!136 &13670418
 CapsuleCollider:
