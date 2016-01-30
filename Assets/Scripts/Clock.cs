@@ -26,25 +26,26 @@ public class Clock : MonoBehaviour
 
     IEnumerator Time()
     {
-        while (Running)
+        while (true)
         {
             yield return new WaitForSeconds(MinuteTime);
+            if (Running) { 
+                minute++;
+                while (minute >= 60)
+                {
+                    minute -= 60;
+                    hour++;
+                }
 
-            minute++;
-            while (minute >= 60)
-            {
-                minute -= 60;
-                hour++;
-            }
+                text.text = (hour < 10 ? "0" + hour : hour.ToString()) + ":" + (minute < 10 ? "0" + minute : minute.ToString());
 
-            text.text = (hour < 10 ? "0" + hour : hour.ToString()) + ":" + (minute < 10 ? "0" + minute : minute.ToString());
+                if (hour >= EndTimeHour && minute >= EndTimeMinute)
+                {
+                    Running = false;
 
-            if (hour >= EndTimeHour && minute >= EndTimeMinute)
-            {
-                Running = false;
-
-                GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().Control = false;
-                Debug.Log("You Lose");
+                    GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().Control = false;
+                    Debug.Log("You Lose");
+                }
             }
         }
     }

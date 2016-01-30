@@ -142,6 +142,7 @@ public class Title : MonoBehaviour
         Text.color = newT;
         Background.color = newB;
 
+        Debug.Log("Ready to go!");
         player.enabled = Clock.Running = true;
     }
     private IEnumerator FadeLight()
