@@ -8,6 +8,7 @@ public class TimedTask : Interactable
 
     public override void Interact(Player player)
     {
+        ClearAtt();
         StartCoroutine(Do());
     }
 

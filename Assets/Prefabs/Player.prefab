@@ -1602,7 +1602,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 1
   m_Interpolate: 1
-  m_Constraints: 0
+  m_Constraints: 80
   m_CollisionDetection: 1
 --- !u!95 &9536402
 Animator:
@@ -1701,9 +1701,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nextWaypointDistance: 0.65
   targetPosition: {x: 0, y: 0, z: 0}
-  SlowSpeed: 1
-  NormalSpeed: 1
-  FastSpeed: 1
+  SlowSpeed: 3
+  NormalSpeed: 3
+  FastSpeed: 3
   Control: 1
   Todo:
   - Get out of bed
@@ -1712,6 +1712,7 @@ MonoBehaviour:
   - Drink coffee
   - Brush teeth
   doing: 1
+  AttPrefab: {fileID: 11447158, guid: 56091bc7e559b4c4d8b05207f3ed80e1, type: 2}
 --- !u!136 &13670418
 CapsuleCollider:
   m_ObjectHideFlags: 1

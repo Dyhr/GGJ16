@@ -15,6 +15,7 @@ public class Cam : MonoBehaviour
     private float prepos;
     private float pretarget;
     private Camera cam;
+    public Camera cam2;
 
     private void Start()
     {
@@ -29,7 +30,8 @@ public class Cam : MonoBehaviour
 
         transform.position = Vector3.Lerp(transform.position, target, 0.2f);
 
-        cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, !Player.doing ? DefaultSize : ZoomSize, 0.2f);
+        cam.orthographicSize = cam2.orthographicSize = Mathf.Lerp(cam.orthographicSize, !Player.doing ? DefaultSize : ZoomSize, 0.2f);
         transform.LookAt(pos);
+        cam2.transform.rotation = transform.rotation;
     }
 }

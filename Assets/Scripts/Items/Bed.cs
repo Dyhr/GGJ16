@@ -7,6 +7,7 @@ public class Bed : Interactable
 
     public override void Interact(Player player)
     {
+        ClearAtt();
         Done = true;
         player.transform.rotation = Quaternion.identity;
         player.transform.position = Spawn;

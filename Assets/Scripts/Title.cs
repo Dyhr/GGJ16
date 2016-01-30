@@ -21,8 +21,15 @@ public class Title : MonoBehaviour
 
     public int Day;
 
+    public bool Skip;
+
     private void Start()
     {
+        if (Skip)
+        {
+            Destroy(gameObject);
+            return;
+        }
         player.enabled = Clock.Running = false;
         Background.color = BackgroundLight;
         Text.color = TextLight;

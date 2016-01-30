@@ -8,6 +8,7 @@ public class CoffeeMaker : Interactable
 
     public override void Interact(Player player)
     {
+        ClearAtt();
         Done = true;
         StartCoroutine(WaitForCoffee());
     }

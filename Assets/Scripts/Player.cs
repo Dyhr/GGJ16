@@ -28,11 +28,25 @@ public class Player : MonoBehaviour
     private Interactable Task;
     public bool doing = false;
 
+    public ClickMe AttPrefab;
+
     private void Start()
     {
         human = GetComponent<Human>();
         seeker = GetComponent<Seeker>();
         seeker.pathCallback += OnPathComplete;
+
+        UpdateAtt();
+    }
+
+    private void UpdateAtt()
+    {
+        if (Todo.Count == 0) return;
+
+        foreach (var item in FindObjectsOfType<Interactable>())
+        {
+            item.Attention(Todo[0], AttPrefab);
+        }
     }
 
     private void OnDestroy()
@@ -63,7 +77,7 @@ public class Player : MonoBehaviour
         }
         else if (!_awaitingPath)
         {
-            //human.LockRot = true;
+            human.LockRot = true;
         }
 
         // Moving around
@@ -137,6 +151,7 @@ public class Player : MonoBehaviour
                     {
                         Todo.Remove(Task.Name);
                     }
+                    UpdateAtt();
                     Task = null;
                     path = null;
                     return;
