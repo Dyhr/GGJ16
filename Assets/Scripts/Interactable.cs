@@ -5,6 +5,7 @@ public class Interactable : Aimable
 {
     public float InteractionDistance;
     public string Name;
+    public bool Done;
 
     public override void Click(Player player)
     {
@@ -13,6 +14,7 @@ public class Interactable : Aimable
     }
     public virtual void Interact(Player player)
     {
+        Done = true;
     }
 
     protected override void OnDrawGizmos()

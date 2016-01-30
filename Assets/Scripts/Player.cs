@@ -26,7 +26,7 @@ public class Player : MonoBehaviour
     private bool _awaitingPath;
 
     private Interactable Task;
-    private bool doing = false;
+    public bool doing = false;
 
     private void Start()
     {
@@ -44,27 +44,13 @@ public class Player : MonoBehaviour
     {
         if (!Control) return;
 
-        if(Task != null)
-        {
-            if (!doing && Vector3.Distance(transform.position,Task.transform.position) < Task.InteractionDistance)
-            {
-                doing = true;
-                path = null;
-            }
-            else if (doing)
-            {
-                doing = false;
-                if (Todo.Contains(Task.Name)) {
-                    Todo.Remove(Task.Name);
-                }
-                Task = null;
-            }
-        }
+        // Following your path
 
         if (path != null)
         {
             if (currentWaypoint >= path.vectorPath.Count)
             {
+                Debug.Log("Went there!");
                 path = null;
                 return;
             }
@@ -77,8 +63,10 @@ public class Player : MonoBehaviour
         }
         else if (!_awaitingPath)
         {
-            // Idle here
+            //human.LockRot = true;
         }
+
+        // Moving around
 
         var cam = Camera.main;
         if (cam != null)
@@ -87,24 +75,65 @@ public class Player : MonoBehaviour
             var mask = 1 << LayerMask.NameToLayer("Target");
             var ray = cam.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
-            if (Input.GetMouseButtonDown(0) && Physics.Raycast(ray, out hit, 100, mask))
+            if (Input.GetMouseButtonDown(0) && Physics.Raycast(ray, out hit, 100, mask) && !(doing && Task != null)) // Change this when adding interactions
             {
                 Task = hit.transform.parent.GetComponent<Interactable>();
                 doing = false;
+                Debug.Log("Gonna do this thing! " + Task.Name);
 
                 targetPosition = Task.transform.position;
                 _awaitingPath = true;
                 seeker.StartPath(transform.position, targetPosition);
                 Debug.DrawLine(ray.origin, ray.origin + ray.direction * 100, Color.red, 0.5f);
             }
-            else if (Input.GetMouseButtonDown(0) && Physics.Raycast(ray, out hit, 100))
+            else if (Input.GetMouseButtonDown(0) && Physics.Raycast(ray, out hit, 100) && !doing)
             {
-                Task = null;
-                doing = false;
-                targetPosition = hit.point;
-                _awaitingPath = true;
-                seeker.StartPath(transform.position, targetPosition);
-                Debug.DrawLine(ray.origin, ray.origin + ray.direction * 100, Color.red, 0.5f);
+                if (hit.transform.tag != "NoMove")
+                {
+                    Debug.Log("Gonna go there!");
+                    Task = null;
+                    doing = false;
+                    targetPosition = hit.point;
+                    _awaitingPath = true;
+                    seeker.StartPath(transform.position, targetPosition);
+                    Debug.DrawLine(ray.origin, ray.origin + ray.direction * 100, Color.red, 0.5f);
+                }
+            }
+        }
+
+        // Doing tasks
+
+        if (Task != null)
+        {
+            if (!doing && Vector3.Distance(transform.position, Task.transform.position) < Task.InteractionDistance)
+            {
+                if (Todo.FirstOrDefault() == Task.Name)
+                {
+                    doing = true;
+                }
+                else
+                {
+                    Debug.Log("Can't do that yet!");
+                }
+                path = null;
+            }
+            else if (doing)
+            {
+                if (Task.Done)
+                {
+                    doing = false;
+                    if (Todo.Contains(Task.Name))
+                    {
+                        Todo.Remove(Task.Name);
+                    }
+                    Task = null;
+                    path = null;
+                    return;
+                }
+                else
+                {
+                    Task.Interact(this);
+                }
             }
         }
 
