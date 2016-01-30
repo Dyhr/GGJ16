@@ -29,7 +29,7 @@ GameObject:
   - 33: {fileID: 3394646}
   - 65: {fileID: 6540014}
   - 23: {fileID: 2350764}
-  - 114: {fileID: 11454454}
+  - 114: {fileID: 11422682}
   m_Layer: 9
   m_Name: Sink 1
   m_TagString: Untagged
@@ -152,7 +152,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &11454454
+--- !u!114 &11422682
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -160,7 +160,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 153244}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac80d14532ff03c4a84f7007772e408c, type: 3}
+  m_Script: {fileID: 11500000, guid: 5361b0da119ca8e41871dfb3c0d5be22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Radius: 0.6
@@ -168,6 +168,8 @@ MonoBehaviour:
   Name: Brush teeth
   Done: 0
   Time: 3
+  AndThen: Wash hands
+  TimeToCoffee: 1
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

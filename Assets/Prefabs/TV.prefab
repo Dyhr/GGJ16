@@ -11,8 +11,8 @@ GameObject:
   - 33: {fileID: 3312676}
   - 65: {fileID: 6523184}
   - 23: {fileID: 2311074}
-  - 114: {fileID: 11421284}
-  m_Layer: 0
+  - 114: {fileID: 11488658}
+  m_Layer: 9
   m_Name: TV
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -76,7 +76,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &11421284
+--- !u!114 &11488658
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -84,14 +84,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 146634}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac80d14532ff03c4a84f7007772e408c, type: 3}
+  m_Script: {fileID: 11500000, guid: 5361b0da119ca8e41871dfb3c0d5be22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Radius: 0.8
   InteractionDistance: 1.2
   Name: Turn on TV
   Done: 0
-  Time: 1
+  Time: 1.5
+  AndThen: Turn off TV
+  TimeToCoffee: 1
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

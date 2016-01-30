@@ -9,11 +9,10 @@ public class TimedTask : Interactable
     public override void Interact(Player player)
     {
         ClearAtt();
-        StartCoroutine(Do());
-        
+        StartCoroutine(Do(player));
     }
 
-    private IEnumerator Do()
+    protected virtual IEnumerator Do(Player player)
     {
         yield return new WaitForSeconds(Time);
         Done = true;

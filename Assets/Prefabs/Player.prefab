@@ -1082,6 +1082,7 @@ MonoBehaviour:
   - Get out of bed
   - Make coffee
   - Drink coffee
+  - Take a shower
   - Get dressed
   - Turn on TV
   - Watch TV
@@ -1090,10 +1091,9 @@ MonoBehaviour:
   - Brush teeth
   - Pee
   - Wash hands
-  - Take a shower
   - Put on coat
-  DoFirst: ffffffff000000000100000000000000000000000400000005000000030000000200000008000000090000000000000003000000
-  Hidden: 00000100000101010001010001
+  DoFirst: ffffffff000000000100000000000000030000000000000005000000050000000100000002000000020000000a00000004000000
+  Hidden: 00000100000001010101010101
   doing: 1
   AttPrefab: {fileID: 11447158, guid: 56091bc7e559b4c4d8b05207f3ed80e1, type: 2}
   Manimator: {fileID: 9546222}

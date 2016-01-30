@@ -11,7 +11,7 @@ GameObject:
   - 33: {fileID: 3349142}
   - 65: {fileID: 6591116}
   - 23: {fileID: 2324918}
-  - 114: {fileID: 11433004}
+  - 114: {fileID: 11486850}
   m_Layer: 0
   m_Name: CoffeeMaker
   m_TagString: Untagged
@@ -25,9 +25,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 106928}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.49, y: 0.9, z: -1.72}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
+  m_LocalRotation: {x: 0, y: 0.19920796, z: 0, w: 0.9799573}
+  m_LocalPosition: {x: 5.39, y: 1.576, z: -1.8}
+  m_LocalScale: {x: 0.31589198, y: 0.31589195, z: 0.31589195}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -76,7 +76,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &11433004
+--- !u!114 &11486850
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -84,14 +84,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 106928}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d87ce4118b6f6c64799ce7c99893b039, type: 3}
+  m_Script: {fileID: 11500000, guid: 5361b0da119ca8e41871dfb3c0d5be22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Radius: 0.55
   InteractionDistance: 1.3
   Name: Make coffee
   Done: 0
-  TimeToCoffee: 2
+  Time: 4
+  AndThen: Drink coffee
+  TimeToCoffee: 15
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

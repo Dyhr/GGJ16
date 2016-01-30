@@ -70,10 +70,10 @@ public class Player : MonoBehaviour
         DoFirst.RemoveAt(i);
         Hidden.RemoveAt(i);
         for (int j = i; j < Hidden.Count; ++j) {
-            if (j != i)
-                DoFirst[j]--;
-            else
+            if (j == i)
                 DoFirst[j] = -1;
+            else if(DoFirst[j] >= i)
+                DoFirst[j]--;
         }
     }
 
