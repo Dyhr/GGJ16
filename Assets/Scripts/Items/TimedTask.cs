@@ -6,9 +6,13 @@ public class TimedTask : Interactable
 {
     public float Time;
 
+    protected bool running;
+
     public override void Interact(Player player)
     {
         ClearAtt();
+        if (running) return;
+        running = true;
         StartCoroutine(Do(player));
     }
 
@@ -16,5 +20,6 @@ public class TimedTask : Interactable
     {
         yield return new WaitForSeconds(Time);
         Done = true;
+        running = false;
     }
 }

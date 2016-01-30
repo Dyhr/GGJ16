@@ -15,5 +15,6 @@ public class TimeChanger : TimedTask
         Done = false;
         Name = AndThen;
         Attention(player.CanDo(Name), player.AttPrefab);
+        running = false;
     }
 }

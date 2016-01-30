@@ -31,16 +31,16 @@ public class Clock : MonoBehaviour
         {
             yield return new WaitForSeconds(MinuteTime);
             if (Running) { 
-                minute++;
-                while (minute >= 60)
+                minute--;
+                while (minute < 0)
                 {
-                    minute -= 60;
-                    hour++;
+                    minute += 60;
+                    hour--;
                 }
 
                 text.text = (hour < 10 ? "0" + hour : hour.ToString()) + ":" + (minute < 10 ? "0" + minute : minute.ToString());
 
-                if (hour >= EndTimeHour && minute >= EndTimeMinute)
+                if (hour <= EndTimeHour && minute <= EndTimeMinute)
                 {
                     Running = false;
 
