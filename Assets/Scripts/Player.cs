@@ -18,6 +18,8 @@ public class Player : MonoBehaviour
     public bool Control = true;
 
     public List<string> Todo = new List<string>();
+    public List<int> DoFirst = new List<int>();
+    public List<bool> Hidden = new List<bool>();
 
     private Human human;
     internal Seeker seeker;
@@ -45,13 +47,33 @@ public class Player : MonoBehaviour
 
         foreach (var item in FindObjectsOfType<Interactable>())
         {
-            item.Attention(Todo[0], AttPrefab);
+            item.Attention(CanDo(item.Name), AttPrefab);
         }
     }
 
     private void OnDestroy()
     {
         StopAllCoroutines();
+    }
+
+    public bool CanDo(string task)
+    {
+        if (!Todo.Contains(task)) return false;
+        var i = Todo.IndexOf(task);
+        return DoFirst[i] < 0;
+    }
+    public void RemoveTask(string task)
+    {
+        var i = Todo.IndexOf(task);
+        Todo.RemoveAt(i);
+        DoFirst.RemoveAt(i);
+        Hidden.RemoveAt(i);
+        for (int j = i; j < Hidden.Count; ++j) {
+            if (j != i)
+                DoFirst[j]--;
+            else
+                DoFirst[j] = -1;
+        }
     }
 
     public void Update()
@@ -130,7 +152,7 @@ public class Player : MonoBehaviour
                 }
                 else
                 {
-                    if (Todo.FirstOrDefault() == Task.Name)
+                    if (CanDo(Task.Name))
                     {
                         doing = true;
                     }
@@ -149,7 +171,7 @@ public class Player : MonoBehaviour
                     Debug.Log("Did it!");
                     if (Todo.Contains(Task.Name))
                     {
-                        Todo.Remove(Task.Name);
+                        RemoveTask(Task.Name);
                     }
                     UpdateAtt();
                     Task = null;

@@ -1708,9 +1708,19 @@ MonoBehaviour:
   Todo:
   - Get out of bed
   - Make coffee
-  - Look at art
   - Drink coffee
+  - Get dressed
+  - Turn on TV
+  - Watch TV
+  - Turn off TV
+  - Look at art
   - Brush teeth
+  - Pee
+  - Wash hands
+  - Take a shower
+  - Put on coat
+  DoFirst: ffffffff000000000100000000000000000000000400000005000000030000000200000008000000090000000000000003000000
+  Hidden: 00000100000101010001010001
   doing: 1
   AttPrefab: {fileID: 11447158, guid: 56091bc7e559b4c4d8b05207f3ed80e1, type: 2}
 --- !u!136 &13670418

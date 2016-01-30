@@ -28,10 +28,10 @@ public class Interactable : Aimable
         Gizmos.DrawWireSphere(transform.position, InteractionDistance);
     }
 
-    public void Attention(string name, ClickMe prefab)
+    public void Attention(bool doit, ClickMe prefab)
     {
         ClearAtt();
-        if (Name != name) return;
+        if (!doit) return;
 
         attention = (ClickMe)Instantiate(prefab, transform.position, Camera.main.transform.rotation);
     }

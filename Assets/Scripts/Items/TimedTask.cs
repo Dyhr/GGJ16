@@ -10,6 +10,7 @@ public class TimedTask : Interactable
     {
         ClearAtt();
         StartCoroutine(Do());
+        
     }
 
     private IEnumerator Do()

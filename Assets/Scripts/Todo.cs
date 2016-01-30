@@ -14,7 +14,8 @@ public class Todo : MonoBehaviour
         {
             var list = "";
             foreach (var item in player.Todo)
-                list += "- " + item + "\n";
+                if(!(!player.CanDo(item) && player.Hidden[player.Todo.IndexOf(item)]))
+                    list += "- " + item + "\n";
             text.text = (!player.Control?"You forgot to:\n":"Todo:\n") + list;
         }
         else

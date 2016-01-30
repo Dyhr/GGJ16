@@ -10,13 +10,14 @@ public class CoffeeMaker : Interactable
     {
         ClearAtt();
         Done = true;
-        StartCoroutine(WaitForCoffee());
+        StartCoroutine(WaitForCoffee(player));
     }
 
-    private IEnumerator WaitForCoffee()
+    private IEnumerator WaitForCoffee(Player player)
     {
         yield return new WaitForSeconds(TimeToCoffee);
         Done = false;
         Name = "Drink coffee";
+        Attention(player.CanDo(Name), player.AttPrefab);
     }
 }
