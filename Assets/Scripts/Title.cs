@@ -65,9 +65,6 @@ public class Title : MonoBehaviour
         Text.text = "";
         StartCoroutine(FadeLight());
         yield return new WaitForSeconds(4);
-        Text.text = "tomorrow commences..";
-        StartCoroutine(FadeDark());
-        yield return new WaitForSeconds(3);
         var index = SceneManager.GetActiveScene().buildIndex;
         Debug.Log(index + " of  " + SceneManager.sceneCountInBuildSettings);
         if (index+1 >= SceneManager.sceneCountInBuildSettings)
@@ -81,6 +78,9 @@ public class Title : MonoBehaviour
         else
         {
             Debug.Log("Next scene!");
+            Text.text = "tomorrow commences..";
+            StartCoroutine(FadeDark());
+            yield return new WaitForSeconds(3);
             StartCoroutine(FadeAway());
             yield return new WaitForSeconds(1);
             SceneManager.LoadScene(++index);
