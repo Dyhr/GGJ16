@@ -7,11 +7,11 @@ public class Bed : Interactable
 
     public override void Interact(Player player)
     {
-        Debug.Log("Did it!");
         Done = true;
         player.transform.rotation = Quaternion.identity;
         player.transform.position = Spawn;
         player.GetComponent<Rigidbody>().isKinematic = false;
+        player.path = null;
     }
 
     protected override void OnDrawGizmos()

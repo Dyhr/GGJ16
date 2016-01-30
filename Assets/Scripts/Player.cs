@@ -78,13 +78,16 @@ public class Player : MonoBehaviour
             if (Input.GetMouseButtonDown(0) && Physics.Raycast(ray, out hit, 100, mask) && !(doing && Task != null)) // Change this when adding interactions
             {
                 Task = hit.transform.parent.GetComponent<Interactable>();
-                doing = false;
+                //doing = false;
                 Debug.Log("Gonna do this thing! " + Task.Name);
 
-                targetPosition = Task.transform.position;
-                _awaitingPath = true;
-                seeker.StartPath(transform.position, targetPosition);
-                Debug.DrawLine(ray.origin, ray.origin + ray.direction * 100, Color.red, 0.5f);
+                if (!doing)
+                {
+                    targetPosition = Task.transform.position;
+                    _awaitingPath = true;
+                    seeker.StartPath(transform.position, targetPosition);
+                    Debug.DrawLine(ray.origin, ray.origin + ray.direction * 100, Color.red, 0.5f);
+                }
             }
             else if (Input.GetMouseButtonDown(0) && Physics.Raycast(ray, out hit, 100) && !doing)
             {
@@ -107,13 +110,20 @@ public class Player : MonoBehaviour
         {
             if (!doing && Vector3.Distance(transform.position, Task.transform.position) < Task.InteractionDistance)
             {
-                if (Todo.FirstOrDefault() == Task.Name)
+                if (Task.Done)
                 {
-                    doing = true;
+                    Debug.Log("Already did that!");
                 }
                 else
                 {
-                    Debug.Log("Can't do that yet!");
+                    if (Todo.FirstOrDefault() == Task.Name)
+                    {
+                        doing = true;
+                    }
+                    else
+                    {
+                        Debug.Log("Can't do that yet!");
+                    }
                 }
                 path = null;
             }
@@ -122,6 +132,7 @@ public class Player : MonoBehaviour
                 if (Task.Done)
                 {
                     doing = false;
+                    Debug.Log("Did it!");
                     if (Todo.Contains(Task.Name))
                     {
                         Todo.Remove(Task.Name);
