@@ -7,6 +7,7 @@ public class TimedTask : Interactable
     public float Time;
     public Vector3 Anchor;
     public bool DestroyMe;
+    public bool DontStop;
 
     protected bool running;
     protected Vector3 oldPos;
@@ -21,6 +22,8 @@ public class TimedTask : Interactable
             player.transform.position = Anchor;
             player.GetComponent<Rigidbody>().isKinematic = true;
         }
+        if (GetComponentInChildren<ParticleSystem>() != null)
+            GetComponentInChildren<ParticleSystem>().Play();
         StartCoroutine(Do(player));
     }
 
@@ -34,6 +37,8 @@ public class TimedTask : Interactable
             player.transform.position = oldPos;
             player.GetComponent<Rigidbody>().isKinematic = false;
         }
+        if (!DontStop && GetComponentInChildren<ParticleSystem>() != null)
+            GetComponentInChildren<ParticleSystem>().Stop();
         if (DestroyMe)
             Destroy(gameObject,0.1f);
     }
