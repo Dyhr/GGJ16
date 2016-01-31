@@ -2277,6 +2277,30 @@ Prefab:
       propertyPath: Maker
       value: 
       objectReference: {fileID: 456797816}
+    - target: {fileID: 11466708, guid: 4615f7dea65a09046b646b302f68107c, type: 2}
+      propertyPath: MugCurve.m_Curve.Array.data[3].time
+      value: 0.60412246
+      objectReference: {fileID: 0}
+    - target: {fileID: 11466708, guid: 4615f7dea65a09046b646b302f68107c, type: 2}
+      propertyPath: MugCurve.m_Curve.Array.data[3].value
+      value: 0.7214614
+      objectReference: {fileID: 0}
+    - target: {fileID: 11466708, guid: 4615f7dea65a09046b646b302f68107c, type: 2}
+      propertyPath: MugCurve.m_Curve.Array.data[2].value
+      value: 0.39928988
+      objectReference: {fileID: 0}
+    - target: {fileID: 11466708, guid: 4615f7dea65a09046b646b302f68107c, type: 2}
+      propertyPath: MugCurve.m_Curve.Array.data[2].time
+      value: 0.45833334
+      objectReference: {fileID: 0}
+    - target: {fileID: 11466708, guid: 4615f7dea65a09046b646b302f68107c, type: 2}
+      propertyPath: MugCurve.m_Curve.Array.data[1].inSlope
+      value: 0.84440917
+      objectReference: {fileID: 0}
+    - target: {fileID: 11466708, guid: 4615f7dea65a09046b646b302f68107c, type: 2}
+      propertyPath: MugCurve.m_Curve.Array.data[1].outSlope
+      value: 0.84440917
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4615f7dea65a09046b646b302f68107c, type: 2}
   m_IsPrefabParent: 0
