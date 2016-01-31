@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 using Pathfinding;
 using System.Collections;
 using System.Collections.Generic;
@@ -32,6 +33,8 @@ public class Player : MonoBehaviour
 
     public ClickMe AttPrefab;
     public Animator Manimator;
+
+    public Transform Tooltip;
 
     private void Start()
     {
@@ -69,10 +72,11 @@ public class Player : MonoBehaviour
         Todo.RemoveAt(i);
         DoFirst.RemoveAt(i);
         Hidden.RemoveAt(i);
-        for (int j = 0; j < Hidden.Count; ++j) {
+        for (int j = 0; j < Hidden.Count; ++j)
+        {
             if (DoFirst[j] == i)
                 DoFirst[j] = -1;
-            else if(DoFirst[j] >= i)
+            else if (DoFirst[j] >= i)
                 DoFirst[j]--;
         }
     }
@@ -114,22 +118,31 @@ public class Player : MonoBehaviour
         var cam = Camera.main;
         if (cam != null)
         {
-
+            Tooltip.position = Vector3.up * 30;
             var mask = 1 << LayerMask.NameToLayer("Target");
             var ray = cam.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
-            if (Input.GetMouseButtonDown(0) && Physics.Raycast(ray, out hit, 100, mask) && !(doing && Task != null)) // Change this when adding interactions
+            if (Physics.Raycast(ray, out hit, 100, mask)) // Change this when adding interactions
             {
-                Task = hit.transform.parent.GetComponent<Interactable>();
-                //doing = false;
-                Debug.Log("Gonna do this thing! " + Task.Name);
-
-                if (!doing)
+                var t = hit.transform.parent.GetComponent<Interactable>();
+                if (CanDo(t.Name) && Task == null)
                 {
-                    targetPosition = Task.transform.position;
-                    _awaitingPath = true;
-                    seeker.StartPath(transform.position, targetPosition);
-                    Debug.DrawLine(ray.origin, ray.origin + ray.direction * 100, Color.red, 0.5f);
+                    Tooltip.position = t.transform.position;
+                    Tooltip.GetComponentInChildren<Text>().text = t.Name;
+                }
+                if (Input.GetMouseButtonDown(0) && !(doing && Task != null))
+                {
+                    Task = t;
+                    //doing = false;
+                    Debug.Log("Gonna do this thing! " + Task.Name);
+
+                    if (!doing)
+                    {
+                        targetPosition = Task.transform.position;
+                        _awaitingPath = true;
+                        seeker.StartPath(transform.position, targetPosition);
+                        Debug.DrawLine(ray.origin, ray.origin + ray.direction * 100, Color.red, 0.5f);
+                    }
                 }
             }
             else if (Input.GetMouseButtonDown(0) && Physics.Raycast(ray, out hit, 100) && !doing)

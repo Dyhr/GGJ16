@@ -1101,6 +1101,7 @@ MonoBehaviour:
   doing: 1
   AttPrefab: {fileID: 11447158, guid: 56091bc7e559b4c4d8b05207f3ed80e1, type: 2}
   Manimator: {fileID: 9546222}
+  Tooltip: {fileID: 0}
 --- !u!136 &13670418
 CapsuleCollider:
   m_ObjectHideFlags: 1
