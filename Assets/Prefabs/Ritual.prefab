@@ -88,6 +88,12 @@ MonoBehaviour:
   CandleSpeed: 1
   Chorus: {fileID: 0}
   Distort: {fileID: 0}
+  ChangeMaterials:
+  - {fileID: 2100000, guid: 15bb211518f2bc8499800895c0d32b2a, type: 2}
+  - {fileID: 2100000, guid: 8b041a3a4ba1231439600dcbae22296c, type: 2}
+  NewColors:
+  - {r: 0.9764706, g: 0.5264908, b: 0.42352936, a: 1}
+  - {r: 0.19607842, g: 0.09914808, b: 0.070588246, a: 1}
 --- !u!212 &21256188
 SpriteRenderer:
   m_ObjectHideFlags: 1

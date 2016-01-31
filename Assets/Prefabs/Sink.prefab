@@ -120,7 +120,8 @@ MonoBehaviour:
   Name: Pee
   Done: 0
   Time: 3
-  Anchor: {x: 7.57, y: 1, z: 5.52}
+  Anchor: {x: 7.57, y: 1.56, z: 5.52}
+  DestroyMe: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

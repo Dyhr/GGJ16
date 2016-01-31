@@ -6,6 +6,7 @@ public class TimedTask : Interactable
 {
     public float Time;
     public Vector3 Anchor;
+    public bool DestroyMe;
 
     protected bool running;
     protected Vector3 oldPos;
@@ -33,6 +34,8 @@ public class TimedTask : Interactable
             player.transform.position = oldPos;
             player.GetComponent<Rigidbody>().isKinematic = false;
         }
+        if (DestroyMe)
+            Destroy(gameObject,0.1f);
     }
 
     protected override void OnDrawGizmos()

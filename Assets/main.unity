@@ -1693,6 +1693,14 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 11466708, guid: 4615f7dea65a09046b646b302f68107c, type: 2}
+      propertyPath: NewColors.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11466708, guid: 4615f7dea65a09046b646b302f68107c, type: 2}
+      propertyPath: ChangeMaterials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 473962, guid: 4615f7dea65a09046b646b302f68107c, type: 2}
       propertyPath: m_LocalPosition.x
       value: 3.69
@@ -1733,6 +1741,46 @@ Prefab:
       propertyPath: Distort
       value: 
       objectReference: {fileID: 109329736}
+    - target: {fileID: 11466708, guid: 4615f7dea65a09046b646b302f68107c, type: 2}
+      propertyPath: ChangeMaterials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 15bb211518f2bc8499800895c0d32b2a, type: 2}
+    - target: {fileID: 11466708, guid: 4615f7dea65a09046b646b302f68107c, type: 2}
+      propertyPath: ChangeMaterials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8b041a3a4ba1231439600dcbae22296c, type: 2}
+    - target: {fileID: 11466708, guid: 4615f7dea65a09046b646b302f68107c, type: 2}
+      propertyPath: NewColors.Array.data[0].r
+      value: 0.9764706
+      objectReference: {fileID: 0}
+    - target: {fileID: 11466708, guid: 4615f7dea65a09046b646b302f68107c, type: 2}
+      propertyPath: NewColors.Array.data[0].g
+      value: 0.5264908
+      objectReference: {fileID: 0}
+    - target: {fileID: 11466708, guid: 4615f7dea65a09046b646b302f68107c, type: 2}
+      propertyPath: NewColors.Array.data[0].b
+      value: 0.42352936
+      objectReference: {fileID: 0}
+    - target: {fileID: 11466708, guid: 4615f7dea65a09046b646b302f68107c, type: 2}
+      propertyPath: NewColors.Array.data[0].a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11466708, guid: 4615f7dea65a09046b646b302f68107c, type: 2}
+      propertyPath: NewColors.Array.data[1].r
+      value: 0.19607842
+      objectReference: {fileID: 0}
+    - target: {fileID: 11466708, guid: 4615f7dea65a09046b646b302f68107c, type: 2}
+      propertyPath: NewColors.Array.data[1].g
+      value: 0.09914808
+      objectReference: {fileID: 0}
+    - target: {fileID: 11466708, guid: 4615f7dea65a09046b646b302f68107c, type: 2}
+      propertyPath: NewColors.Array.data[1].b
+      value: 0.070588246
+      objectReference: {fileID: 0}
+    - target: {fileID: 11466708, guid: 4615f7dea65a09046b646b302f68107c, type: 2}
+      propertyPath: NewColors.Array.data[1].a
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4615f7dea65a09046b646b302f68107c, type: 2}
   m_IsPrefabParent: 0

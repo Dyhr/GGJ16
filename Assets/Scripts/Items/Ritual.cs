@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System.Collections.Generic;
 using System;
 
 public class Ritual : TimedTask
@@ -19,6 +20,9 @@ public class Ritual : TimedTask
 
     public AudioChorusFilter Chorus;
     public AudioDistortionFilter Distort;
+
+    public Material[] ChangeMaterials;
+    public Color[] NewColors;
 
     public override void Interact(Player player)
     {
@@ -55,6 +59,10 @@ public class Ritual : TimedTask
         }
         else if (Name == AndThen2)
         {
+            var ocolors = new List<Color>();
+            foreach (var mat in ChangeMaterials)
+                ocolors.Add(mat.color);
+
             var a = transform.position - Vector3.up * 0.5f;
             var b = transform.position + Vector3.up;
             var mug = (Transform)Instantiate(Mug, a, Quaternion.identity);
@@ -73,10 +81,15 @@ public class Ritual : TimedTask
                 Chorus.wetMix3 = 0.5f + MugCurve.Evaluate(time) * 0.5f;
                 Chorus.rate = 0.5f + MugCurve.Evaluate(time) * 20f;
                 Chorus.depth = MugCurve.Evaluate(time);
+
+                for (var i = 0; i < ChangeMaterials.Length; ++i)
+                    ChangeMaterials[i].color = Color.LerpUnclamped(ocolors[i], NewColors[i], MugCurve.Evaluate(time));
             }
             mug.position = b;
             Distort.enabled = false;
             Chorus.enabled = false;
+            for (var i = 0; i < ChangeMaterials.Length; ++i)
+                ChangeMaterials[i].color = ocolors[i];
         }
         else
         {
