@@ -16,5 +16,10 @@ public class TimeChanger : TimedTask
         Name = AndThen;
         Attention(player.CanDo(Name), player.AttPrefab);
         running = false;
+        if (Anchor.magnitude > 0)
+        {
+            player.transform.position = oldPos;
+            player.GetComponent<Rigidbody>().isKinematic = false;
+        }
     }
 }

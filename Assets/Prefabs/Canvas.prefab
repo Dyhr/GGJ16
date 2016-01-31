@@ -234,7 +234,7 @@ MonoBehaviour:
   m_CaretColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_CustomCaretColor: 0
   m_SelectionColor: {r: 0.65882355, g: 0.80784315, b: 1, a: 0.7529412}
-  m_Text: Name
+  m_Text: John
   m_CaretBlinkRate: 0.85
   m_CaretWidth: 1
   m_ReadOnly: 0
@@ -324,7 +324,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: MORNING SCHEDULE
+  m_Text: THE EVERYDAY MORNING ROUTINE OF AN ORDINARY MAN
 --- !u!114 &11457940
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -357,7 +357,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Name
+  m_Text: John
 --- !u!114 &11467034
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -449,7 +449,6 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
-  Day: 0
   Skip: 0
 --- !u!114 &11476132
 MonoBehaviour:

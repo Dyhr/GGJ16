@@ -72,7 +72,7 @@ public class Player : MonoBehaviour
         for (int j = 0; j < Hidden.Count; ++j) {
             if (DoFirst[j] == i)
                 DoFirst[j] = -1;
-            else if(j >= i && DoFirst[j] >= i)
+            else if(DoFirst[j] >= i)
                 DoFirst[j]--;
         }
     }

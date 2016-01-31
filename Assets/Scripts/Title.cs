@@ -77,7 +77,7 @@ public class Title : MonoBehaviour
             Debug.Log("You win!");
             StartCoroutine(FadeAway());
             yield return new WaitForSeconds(1.5f);
-            Text.text = "you made through the week, "+ Name.text.ToLower() + "\ngood job.";
+            Text.text = "you made through the week, "+ Name.text.ToLower() + ".\ngood job.";
             StartCoroutine(FadeDark());
         }
         else
@@ -98,7 +98,7 @@ public class Title : MonoBehaviour
         StartCoroutine(FadeAway());
         yield return new WaitForSeconds(2);
 
-        Text.text = "you fired, " + Name.text.ToLower();
+        Text.text = "you late, " + Name.text.ToLower() + ".\nyou're fired.";
         StartCoroutine(FadeDark());
         yield return new WaitForSeconds(5);
         StartCoroutine(FadeAway());
