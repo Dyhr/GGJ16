@@ -62,6 +62,7 @@ public class Ritual : TimedTask
             var ocolors = new List<Color>();
             foreach (var mat in ChangeMaterials)
                 ocolors.Add(mat.color);
+            var l = ChangeMaterials.Length - 1;
 
             var a = transform.position - Vector3.up * 0.5f;
             var b = transform.position + Vector3.up;
@@ -84,12 +85,14 @@ public class Ritual : TimedTask
 
                 for (var i = 0; i < ChangeMaterials.Length; ++i)
                     ChangeMaterials[i].color = Color.LerpUnclamped(ocolors[i], NewColors[i], MugCurve.Evaluate(time));
+                Camera.main.backgroundColor = Color.LerpUnclamped(ocolors[l], NewColors[l], MugCurve.Evaluate(time));
             }
             mug.position = b;
             Distort.enabled = false;
             Chorus.enabled = false;
             for (var i = 0; i < ChangeMaterials.Length; ++i)
                 ChangeMaterials[i].color = ocolors[i];
+            Camera.main.backgroundColor = ocolors[l];
         }
         else
         {
@@ -126,6 +129,7 @@ public class Ritual : TimedTask
         while (true)
         {
             yield return new WaitForEndOfFrame();
+            if (mug == null) break;
             mug.Rotate(0, UnityEngine.Time.deltaTime * MugRotate, 0);
         }
     }

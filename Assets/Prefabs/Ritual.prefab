@@ -46,6 +46,7 @@ MonoBehaviour:
   Done: 0
   Time: 5
   Anchor: {x: 0, y: 0, z: 0}
+  DestroyMe: 0
   AndThen: Light candles
   AndThen2: Summon coffee
   TimeToCoffee: 2
@@ -91,9 +92,11 @@ MonoBehaviour:
   ChangeMaterials:
   - {fileID: 2100000, guid: 15bb211518f2bc8499800895c0d32b2a, type: 2}
   - {fileID: 2100000, guid: 8b041a3a4ba1231439600dcbae22296c, type: 2}
+  - {fileID: 2100000, guid: 82398dbc417f8944bafe9126487e4da4, type: 2}
   NewColors:
   - {r: 0.9764706, g: 0.5264908, b: 0.42352936, a: 1}
   - {r: 0.19607842, g: 0.09914808, b: 0.070588246, a: 1}
+  - {r: 0.9764706, g: 0.6553888, b: 0.56078434, a: 1}
 --- !u!212 &21256188
 SpriteRenderer:
   m_ObjectHideFlags: 1
