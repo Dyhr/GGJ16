@@ -196,7 +196,7 @@ public class Player : MonoBehaviour
                     }
                     if(Task.Name == "Get dressed")
                     {
-                        GetComponentInChildren<SkinnedMeshRenderer>().sharedMaterial.mainTexture = Dressed;
+                        GetComponentInChildren<SkinnedMeshRenderer>().material.mainTexture = Dressed;
                     }
                     UpdateAtt();
                     Task = null;

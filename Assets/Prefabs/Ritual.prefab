@@ -24,7 +24,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 105754}
   m_LocalRotation: {x: 0.70710665, y: 0, z: 0, w: 0.70710695}
-  m_LocalPosition: {x: 3.69, y: 0.68, z: 0.09}
+  m_LocalPosition: {x: 3.69, y: 0.522, z: 0.09}
   m_LocalScale: {x: 0.67122453, y: 0.67122453, z: 0.67122453}
   m_Children: []
   m_Father: {fileID: 0}
@@ -59,10 +59,20 @@ MonoBehaviour:
       inSlope: 0
       outSlope: 0
       tangentMode: 0
-    - time: 0.76666665
-      value: 0.47500008
-      inSlope: 1.4998019
-      outSlope: 1.4998019
+    - time: 0.24372084
+      value: 0.10802248
+      inSlope: 1.3771653
+      outSlope: 1.3771653
+      tangentMode: 0
+    - time: 0.47083333
+      value: 0.48750007
+      inSlope: 2.1999989
+      outSlope: 2.1999989
+      tangentMode: 0
+    - time: 0.59578913
+      value: 0.9713903
+      inSlope: 3.2916725
+      outSlope: 3.2916725
       tangentMode: 0
     - time: 1
       value: 1
@@ -72,10 +82,12 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
-  MugSpeed: 0.1
+  MugSpeed: 0.05
   MugRotate: 90
   Candle: {fileID: 411782, guid: 397a335535fee964fbca63eafb1794f9, type: 2}
-  CandleSpeed: 0.5
+  CandleSpeed: 1
+  Chorus: {fileID: 0}
+  Distort: {fileID: 0}
 --- !u!212 &21256188
 SpriteRenderer:
   m_ObjectHideFlags: 1

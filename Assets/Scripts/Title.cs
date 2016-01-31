@@ -77,7 +77,7 @@ public class Title : MonoBehaviour
             Debug.Log("You win!");
             StartCoroutine(FadeAway());
             yield return new WaitForSeconds(1.5f);
-            Text.text = "you made through the week, "+ Name.text.ToLower() + ".\ngood job.";
+            Text.text = "you made through, "+ Name.text.ToLower() + ".\ngood job.";
             StartCoroutine(FadeDark());
         }
         else

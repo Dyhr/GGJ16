@@ -39,7 +39,7 @@ public class Ritual : TimedTask
         if (Name == AndThen)
         {
             Transform[] candles = new Transform[5];
-            for(int i = 0; i < 5; ++i)
+            for (int i = 0; i < 5; ++i)
             {
                 float angle = i * (Mathf.PI * 2) / 5;
                 var p = transform.position + (Mathf.Cos(angle) * Vector3.forward + Mathf.Sin(angle) * Vector3.right) * Radius;
@@ -49,12 +49,13 @@ public class Ritual : TimedTask
             for (int i = 0; i < 5; ++i)
             {
                 candles[i].GetComponentInChildren<ParticleSystem>().Play();
+                candles[i].GetComponentInChildren<Light>().enabled = true;
                 yield return new WaitForSeconds(CandleSpeed);
             }
         }
         else if (Name == AndThen2)
         {
-            var a = transform.position - Vector3.up*0.5f;
+            var a = transform.position - Vector3.up * 0.5f;
             var b = transform.position + Vector3.up;
             var mug = (Transform)Instantiate(Mug, a, Quaternion.identity);
             var time = 0.0f;
@@ -64,8 +65,18 @@ public class Ritual : TimedTask
                 yield return new WaitForEndOfFrame();
                 time += UnityEngine.Time.deltaTime * MugSpeed;
                 mug.position = Vector3.LerpUnclamped(a, b, MugCurve.Evaluate(time));
+
+                Distort.distortionLevel = MugCurve.Evaluate(time) * 0.85f;
+                Chorus.dryMix = 0.5f + MugCurve.Evaluate(time) * 0.5f;
+                Chorus.wetMix1 = 0.5f + MugCurve.Evaluate(time) * 0.5f;
+                Chorus.wetMix2 = 0.5f + MugCurve.Evaluate(time) * 0.5f;
+                Chorus.wetMix3 = 0.5f + MugCurve.Evaluate(time) * 0.5f;
+                Chorus.rate = 0.5f + MugCurve.Evaluate(time) * 20f;
+                Chorus.depth = MugCurve.Evaluate(time);
             }
             mug.position = b;
+            Distort.enabled = false;
+            Chorus.enabled = false;
         }
         else
         {
