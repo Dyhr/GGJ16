@@ -967,6 +967,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   title: {fileID: 1634464694}
+  todo: {fileID: 854298563}
 --- !u!1 &735843922
 GameObject:
   m_ObjectHideFlags: 0
@@ -1281,7 +1282,6 @@ MonoBehaviour:
   MustDo:
   - Get dressed
   - Drink coffee
-  - Brush teeth
   - Feed cat
 --- !u!114 &854298564
 MonoBehaviour:
@@ -2516,7 +2516,7 @@ MonoBehaviour:
   StartTimeMinute: 0
   EndTimeHour: 0
   EndTimeMinute: 0
-  MinuteTime: 0.9
+  MinuteTime: 1.4
   text: {fileID: 1363830427}
   title: {fileID: 1634464694}
 --- !u!1001 &1608144692

@@ -22,6 +22,8 @@ public class Title : MonoBehaviour
     public AnimationCurve Curve;
 
     public static int Day;
+    public static int Stress;
+    public static string SName;
 
     public bool Skip;
 
@@ -42,7 +44,10 @@ public class Title : MonoBehaviour
         {
             Background.color = BackgroundDark;
             Text.color = TextDark;
-            Text.text = "";
+            Text.text = "the next day.";
+            Name.text = SName;
+            Name.enabled = false;
+            Clock.MinuteTime -= 0.1f * Day + 0.1f * Stress;
         }
     }
 
@@ -50,6 +55,7 @@ public class Title : MonoBehaviour
     {
         Submit.gameObject.SetActive(false);
         Name.gameObject.SetActive(false);
+        SName = Name.text;
 
         StartCoroutine(SwitchTo());
     }
@@ -59,8 +65,9 @@ public class Title : MonoBehaviour
         text.text = "Art:\nAmanda Stokholm James\nCode:\nRasmus Dyhr Larsen\n\nMusic:\nhttp://newgrounds.com/audio/listen/635055\n\nSounds:\nfreesounds.org";
     }
 
-    internal void NextDay()
+    internal void NextDay(int stress)
     {
+        Stress += stress;
         StartCoroutine(FadeAndLoad());
     }
 
@@ -71,29 +78,68 @@ public class Title : MonoBehaviour
 
     private IEnumerator FadeAndLoad()
     {
-        Day++;
         Text.text = "";
         StartCoroutine(FadeLight());
         yield return new WaitForSeconds(4);
         var index = SceneManager.GetActiveScene().buildIndex;
         Debug.Log(index + " of  " + SceneManager.sceneCountInBuildSettings);
-        if (index + 1 >= SceneManager.sceneCountInBuildSettings)
+        if (Day == 4)
         {
+            Day = 0;
             Debug.Log("You win!");
             StartCoroutine(FadeAway());
             yield return new WaitForSeconds(1.5f);
             Text.text = "you made it, "+ Name.text.ToLower() + ".\ngood job.";
             StartCoroutine(FadeDark());
+            yield return new WaitForSeconds(3);
+            StartCoroutine(FadeAway());
+            yield return new WaitForSeconds(3);
+            Text.text = "";
+            StartCoroutine(FadeLight());
+            yield return new WaitForSeconds(3);
+            SceneManager.LoadScene(0);
         }
         else
         {
+            Day++;
             Debug.Log("Next scene!");
-            Text.text = "tomorrow commences..";
+            Text.text = "you are "+StressName()+".\nyou're doing good.";
             StartCoroutine(FadeDark());
             yield return new WaitForSeconds(3);
             StartCoroutine(FadeAway());
-            yield return new WaitForSeconds(1);
-            SceneManager.LoadScene(++index);
+            yield return new WaitForSeconds(3);
+            Text.text = "";
+            StartCoroutine(FadeLight());
+            yield return new WaitForSeconds(3);
+            SceneManager.LoadScene(0);
+        }
+    }
+    private string StressName()
+    {
+        switch (Stress)
+        {
+            case 0:
+                return "not at all stressed";
+            case 1:
+                return "a tiny bit stressed";
+            case 2:
+                return "slightly stressed";
+            case 3:
+                return "a bit stressed";
+            case 4:
+                return "kinda stressed";
+            case 5:
+                return "stressed";
+            case 6:
+                return "pretty stressed";
+            case 7:
+                return "very stressed";
+            case 8:
+                return "too stressed";
+            case 9:
+                return "extremely stressed";
+            default:
+                return "way too stressed";
         }
     }
     private IEnumerator FadeAndDie()

@@ -12,6 +12,8 @@ public class Todo : MonoBehaviour
 
     public string[] MustDo;
 
+    private bool open;
+
     private void Update()
     {
         if (player.Todo.Count > 0)
@@ -32,9 +34,19 @@ public class Todo : MonoBehaviour
         {
             if (player.Todo.Contains(must)) done = false;
         }
-        if (done)
+        if (done && !open)
         {
+            open = true;
             Door.Rotate(0,-110,0);
         }
+    }
+
+    public int Stress()
+    {
+        int result = 0;
+        foreach (var item in player.Todo)
+            if (!(!player.CanDo(item) && player.Hidden[player.Todo.IndexOf(item)]))
+                result++;
+        return result;
     }
 }
