@@ -25,6 +25,7 @@ public class Cat : MonoBehaviour
 
     public Transform Owner;
     public float PurrDist = 1.6f;
+    public AudioClip Nya;
 
     public Transform[] Waypoints;
 
@@ -87,6 +88,7 @@ public class Cat : MonoBehaviour
     {
         _awaitingPath = true;
         yield return new WaitForSeconds(UnityEngine.Random.Range(0.0f,8.0f));
+        purr.PlayOneShot(Nya, 0.8f);
         if(Waypoints.Length != 0)
         {
             targetPosition = Waypoints[UnityEngine.Random.Range(0, Waypoints.Length)].position;

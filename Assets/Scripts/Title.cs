@@ -42,12 +42,12 @@ public class Title : MonoBehaviour
         }
         else
         {
-            Background.color = BackgroundDark;
-            Text.color = TextDark;
+            Background.color = BackgroundLight;
+            Text.color = TextLight;
             Text.text = "the next day.";
             Name.text = SName;
             Name.enabled = false;
-            Clock.MinuteTime -= 0.1f * Day + 0.1f * Stress;
+            Clock.MinuteTime -= 0.2f * Day + 0.1f * Stress;
         }
     }
 
@@ -62,7 +62,7 @@ public class Title : MonoBehaviour
 
     public void Credits(Text text)
     {
-        text.text = "Art:\nAmanda Stokholm James\nCode:\nRasmus Dyhr Larsen\n\nMusic:\nhttp://newgrounds.com/audio/listen/635055\n\nSounds:\nfreesounds.org";
+        text.text = "Art:\nAmanda James\nCode:\nRasmus Dyhr Larsen\n\nMusic:\nhttp://newgrounds.com/audio/listen/635055\n\nSounds:\nfreesounds.org";
     }
 
     internal void NextDay(int stress)

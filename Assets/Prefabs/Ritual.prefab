@@ -63,16 +63,16 @@ MonoBehaviour:
       tangentMode: 0
     - time: 0.24372084
       value: 0.10802248
-      inSlope: 1.3771653
-      outSlope: 1.3771653
+      inSlope: 0.84440917
+      outSlope: 0.84440917
       tangentMode: 0
-    - time: 0.47083333
-      value: 0.48750007
+    - time: 0.45833334
+      value: 0.39928988
       inSlope: 2.1999989
       outSlope: 2.1999989
       tangentMode: 0
-    - time: 0.59578913
-      value: 0.9713903
+    - time: 0.60412246
+      value: 0.7214614
       inSlope: 3.2916725
       outSlope: 3.2916725
       tangentMode: 0
@@ -84,10 +84,10 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
-  MugSpeed: 0.05
+  MugSpeed: 0.1
   MugRotate: 90
   Candle: {fileID: 411782, guid: 397a335535fee964fbca63eafb1794f9, type: 2}
-  CandleSpeed: 1
+  CandleSpeed: 0.75
   Chorus: {fileID: 0}
   Distort: {fileID: 0}
   ChangeMaterials:
