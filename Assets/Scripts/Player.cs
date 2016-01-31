@@ -33,6 +33,7 @@ public class Player : MonoBehaviour
 
     public ClickMe AttPrefab;
     public Animator Manimator;
+    public Texture2D Dressed;
 
     public Transform Tooltip;
 
@@ -192,6 +193,10 @@ public class Player : MonoBehaviour
                     if (Todo.Contains(Task.Name))
                     {
                         RemoveTask(Task.Name);
+                    }
+                    if(Task.Name == "Get dressed")
+                    {
+                        GetComponentInChildren<SkinnedMeshRenderer>().sharedMaterial.mainTexture = Dressed;
                     }
                     UpdateAtt();
                     Task = null;
