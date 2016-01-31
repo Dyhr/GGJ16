@@ -845,6 +845,10 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2d07c64c57eaaa4409a1074346303168, type: 2}
   m_IsPrefabParent: 0
+--- !u!4 &456797816 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 445970, guid: e53966e999fec16449ddf7a75fd0da9f, type: 2}
+  m_PrefabInternal: {fileID: 804848211}
 --- !u!1 &594071089
 GameObject:
   m_ObjectHideFlags: 0
@@ -2259,7 +2263,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 473962, guid: 4615f7dea65a09046b646b302f68107c, type: 2}
       propertyPath: m_RootOrder
-      value: 22
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 11466708, guid: 4615f7dea65a09046b646b302f68107c, type: 2}
       propertyPath: Chorus
@@ -2269,6 +2273,10 @@ Prefab:
       propertyPath: Distort
       value: 
       objectReference: {fileID: 109329736}
+    - target: {fileID: 11466708, guid: 4615f7dea65a09046b646b302f68107c, type: 2}
+      propertyPath: Maker
+      value: 
+      objectReference: {fileID: 456797816}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4615f7dea65a09046b646b302f68107c, type: 2}
   m_IsPrefabParent: 0

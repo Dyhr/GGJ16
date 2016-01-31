@@ -24,6 +24,8 @@ public class Ritual : TimedTask
     public Material[] ChangeMaterials;
     public Color[] NewColors;
 
+    public Transform Maker;
+
     public override void Interact(Player player)
     {
         ClearAtt();
@@ -93,6 +95,12 @@ public class Ritual : TimedTask
             for (var i = 0; i < ChangeMaterials.Length; ++i)
                 ChangeMaterials[i].color = ocolors[i];
             Camera.main.backgroundColor = ocolors[l];
+
+
+            if (Maker.GetComponentInChildren<ParticleSystem>() != null)
+                Maker.GetComponentInChildren<ParticleSystem>().Stop();
+            if (Maker.GetComponentInChildren<AudioSource>() != null)
+                Maker.GetComponentInChildren<AudioSource>().Stop();
         }
         else
         {

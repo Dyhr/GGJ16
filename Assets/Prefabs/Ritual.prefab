@@ -47,6 +47,7 @@ MonoBehaviour:
   Time: 5
   Anchor: {x: 0, y: 0, z: 0}
   DestroyMe: 0
+  DontStop: 0
   AndThen: Light candles
   AndThen2: Summon coffee
   TimeToCoffee: 2
@@ -97,6 +98,7 @@ MonoBehaviour:
   - {r: 0.9764706, g: 0.5264908, b: 0.42352936, a: 1}
   - {r: 0.19607842, g: 0.09914808, b: 0.070588246, a: 1}
   - {r: 0.9764706, g: 0.6553888, b: 0.56078434, a: 1}
+  Maker: {fileID: 0}
 --- !u!212 &21256188
 SpriteRenderer:
   m_ObjectHideFlags: 1
