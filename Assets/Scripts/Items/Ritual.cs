@@ -17,6 +17,9 @@ public class Ritual : TimedTask
     public Transform Candle;
     public float CandleSpeed;
 
+    public AudioChorusFilter Chorus;
+    public AudioDistortionFilter Distort;
+
     public override void Interact(Player player)
     {
         ClearAtt();
