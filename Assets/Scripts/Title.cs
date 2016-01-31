@@ -54,6 +54,11 @@ public class Title : MonoBehaviour
         StartCoroutine(SwitchTo());
     }
 
+    public void Credits(Text text)
+    {
+        text.text = "Art:\nAmanda Stokholm James\nCode:\nRasmus Dyhr Larsen\n\nMusic:\nhttp://newgrounds.com/audio/listen/635055\n\nSounds:\nfreesounds.org";
+    }
+
     internal void NextDay()
     {
         StartCoroutine(FadeAndLoad());
@@ -77,7 +82,7 @@ public class Title : MonoBehaviour
             Debug.Log("You win!");
             StartCoroutine(FadeAway());
             yield return new WaitForSeconds(1.5f);
-            Text.text = "you made through, "+ Name.text.ToLower() + ".\ngood job.";
+            Text.text = "you made it, "+ Name.text.ToLower() + ".\ngood job.";
             StartCoroutine(FadeDark());
         }
         else

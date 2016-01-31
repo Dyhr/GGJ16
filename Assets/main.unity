@@ -2036,6 +2036,14 @@ Prefab:
       propertyPath: Clock
       value: 
       objectReference: {fileID: 1595087490}
+    - target: {fileID: 11447854, guid: 2fb4f8d55b7d21f45b85b3e73664ce34, type: 2}
+      propertyPath: m_FontData.m_FontSize
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 11447854, guid: 2fb4f8d55b7d21f45b85b3e73664ce34, type: 2}
+      propertyPath: m_FontData.m_MaxSize
+      value: 108
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2fb4f8d55b7d21f45b85b3e73664ce34, type: 2}
   m_IsPrefabParent: 0
