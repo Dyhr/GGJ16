@@ -14,6 +14,9 @@ public class Ritual : TimedTask
     public float MugSpeed;
     public float MugRotate;
 
+    public Transform Candle;
+    public float CandleSpeed;
+
     public override void Interact(Player player)
     {
         ClearAtt();
@@ -30,7 +33,23 @@ public class Ritual : TimedTask
 
     protected override IEnumerator Do(Player player)
     {
-        if (Name == AndThen2)
+        if (Name == AndThen)
+        {
+            Transform[] candles = new Transform[5];
+            for(int i = 0; i < 5; ++i)
+            {
+                float angle = i * (Mathf.PI * 2) / 5;
+                var p = transform.position + (Mathf.Cos(angle) * Vector3.forward + Mathf.Sin(angle) * Vector3.right) * Radius;
+                candles[i] = (Transform)Instantiate(Candle, p, Quaternion.identity);
+                yield return new WaitForSeconds(CandleSpeed);
+            }
+            for (int i = 0; i < 5; ++i)
+            {
+                candles[i].GetComponentInChildren<ParticleSystem>().Play();
+                yield return new WaitForSeconds(CandleSpeed);
+            }
+        }
+        else if (Name == AndThen2)
         {
             var a = transform.position - Vector3.up*0.5f;
             var b = transform.position + Vector3.up;
