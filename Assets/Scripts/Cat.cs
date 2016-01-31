@@ -5,6 +5,7 @@ using System;
 
 [RequireComponent(typeof(Human))]
 [RequireComponent(typeof(Seeker))]
+[RequireComponent(typeof(AudioSource))]
 public class Cat : MonoBehaviour
 {
 
@@ -16,10 +17,14 @@ public class Cat : MonoBehaviour
     public float FastSpeed;
 
     private Human human;
+    private AudioSource purr;
     internal Seeker seeker;
     internal Path path;
     private int currentWaypoint = 0;
     private bool _awaitingPath;
+
+    public Transform Owner;
+    public float PurrDist = 1.6f;
 
     public Transform[] Waypoints;
 
@@ -27,6 +32,7 @@ public class Cat : MonoBehaviour
     {
         human = GetComponent<Human>();
         seeker = GetComponent<Seeker>();
+        purr = GetComponent<AudioSource>();
         seeker.pathCallback += OnPathComplete;
 
         human.Speed = NormalSpeed;
@@ -69,6 +75,12 @@ public class Cat : MonoBehaviour
             StopAllCoroutines();
             StartCoroutine(FindPath());
         }
+
+        // Purr
+        if (!purr.isPlaying && Vector3.Distance(transform.position, Owner.position) <= PurrDist)
+            purr.Play();
+        else if(purr.isPlaying && Vector3.Distance(transform.position, Owner.position) > PurrDist)
+            purr.Pause();
     }
 
     private IEnumerator FindPath()

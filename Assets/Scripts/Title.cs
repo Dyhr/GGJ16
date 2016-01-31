@@ -135,7 +135,7 @@ public class Title : MonoBehaviour
             case 4: Text.text = "friday"; break;
             default: Text.text = "someday"; break;
         }
-        Text.text += ".\nmake coffee.\ntake a shower.\nleave for work.";
+        Text.text += " morning.\nmake coffee.\ntake a shower.\nleave for work.";
         yield return new WaitForSeconds(0.2f);
         time = 0;
         for (var i = 0; i < steps; ++i)

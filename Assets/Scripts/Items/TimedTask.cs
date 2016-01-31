@@ -24,6 +24,8 @@ public class TimedTask : Interactable
         }
         if (GetComponentInChildren<ParticleSystem>() != null)
             GetComponentInChildren<ParticleSystem>().Play();
+        if (GetComponentInChildren<AudioSource>() != null)
+            GetComponentInChildren<AudioSource>().Play();
         StartCoroutine(Do(player));
     }
 
@@ -39,6 +41,8 @@ public class TimedTask : Interactable
         }
         if (!DontStop && GetComponentInChildren<ParticleSystem>() != null)
             GetComponentInChildren<ParticleSystem>().Stop();
+        if (!DontStop && GetComponentInChildren<AudioSource>() != null)
+            GetComponentInChildren<AudioSource>().Stop();
         if (DestroyMe)
             Destroy(gameObject,0.1f);
     }
