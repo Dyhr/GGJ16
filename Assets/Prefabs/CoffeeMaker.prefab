@@ -8,9 +8,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 445970}
-  - 33: {fileID: 3349142}
   - 65: {fileID: 6591116}
-  - 23: {fileID: 2324918}
   - 114: {fileID: 11486850}
   m_Layer: 0
   m_Name: CoffeeMaker
@@ -19,6 +17,35 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &129616
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 401796}
+  - 33: {fileID: 3347886}
+  - 23: {fileID: 2395052}
+  m_Layer: 0
+  m_Name: coffeemaker
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &401796
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 129616}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 0.58, y: -0.68, z: -0.36}
+  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_Children: []
+  m_Father: {fileID: 445970}
+  m_RootOrder: 0
 --- !u!4 &445970
 Transform:
   m_ObjectHideFlags: 1
@@ -28,27 +55,28 @@ Transform:
   m_LocalRotation: {x: 0, y: 0.19920796, z: 0, w: 0.9799573}
   m_LocalPosition: {x: 5.39, y: 1.576, z: -1.8}
   m_LocalScale: {x: 0.31589198, y: 0.31589195, z: 0.31589195}
-  m_Children: []
+  m_Children:
+  - {fileID: 401796}
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!23 &2324918
+--- !u!23 &2395052
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 106928}
+  m_GameObject: {fileID: 129616}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 527125c06f42ece499a0a018151a7e86, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
   m_ReflectionProbeUsage: 1
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_PreserveUVs: 1
+  m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
   m_MinimumChartSize: 4
@@ -57,13 +85,13 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
---- !u!33 &3349142
+--- !u!33 &3347886
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 106928}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_GameObject: {fileID: 129616}
+  m_Mesh: {fileID: 4300000, guid: 5a378dea5144c6f419c3593a2f062267, type: 3}
 --- !u!65 &6591116
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -92,6 +120,7 @@ MonoBehaviour:
   Name: Make coffee
   Done: 0
   Time: 4
+  Anchor: {x: 0, y: 0, z: 0}
   AndThen: Drink coffee
   TimeToCoffee: 15
 --- !u!1001 &100100000

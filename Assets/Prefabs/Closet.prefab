@@ -273,7 +273,8 @@ MonoBehaviour:
   InteractionDistance: 1.2
   Name: Get dressed
   Done: 0
-  Time: 1
+  Time: 4
+  Anchor: {x: 0, y: 0, z: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
